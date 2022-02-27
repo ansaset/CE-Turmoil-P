@@ -1,23 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="38">
-  <CheatEntries>
-    <CheatEntry>
-      <ID>13</ID>
-      <Description>"较为垃圾的冻结时间-aob"</Description>
-      <LastState/>
-      <VariableType>Auto Assembler Script</VariableType>
-      <AssemblerScript>{ Game   : Turmoil.exe
-  Version: 
-  Date   : 2022-02-18
-  Author : Hying
 
-  This script does blah blah blah
-}
 
 [ENABLE]
 //code from here to '[DISABLE]' will be used to enable the cheat
 
- 
  
 aobscan(INJECT,89 88 CC 00 00 00 48 8B CE 66) // should be unique
 alloc(newmem,$1000,INJECT)
@@ -147,40 +132,3 @@ dealloc(newmem)
 2580AF9732C: 44 3B F0              - cmp r14d,eax
 2580AF9732F: 0F 8C 9B FD FF FF     - jl 2580AF970D0
 }
-</AssemblerScript>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>61</ID>
-      <Description>"奖金岛，丰饶，荒漠，平原，雪地，火山"</Description>
-      <LastState Value="8" RealAddress="1B7AA3F3B7C"/>
-      <VariableType>4 Bytes</VariableType>
-      <Address>"mono-2.0-bdwgc.dll"+0073F448</Address>
-      <Offsets>
-        <Offset>DC</Offset>
-        <Offset>18</Offset>
-        <Offset>10</Offset>
-        <Offset>A0</Offset>
-        <Offset>70</Offset>
-        <Offset>748</Offset>
-      </Offsets>
-      <CheatEntries>
-        <CheatEntry>
-          <ID>68</ID>
-          <Description>"雪地，火山岛，平原，丰饶"</Description>
-          <LastState Value="8" RealAddress="1B7AA3F3B7C"/>
-          <VariableType>4 Bytes</VariableType>
-          <Address>"mono-2.0-bdwgc.dll"+00492DA8</Address>
-          <Offsets>
-            <Offset>DC</Offset>
-            <Offset>18</Offset>
-            <Offset>20</Offset>
-            <Offset>A0</Offset>
-            <Offset>20</Offset>
-            <Offset>420</Offset>
-          </Offsets>
-        </CheatEntry>
-      </CheatEntries>
-    </CheatEntry>
-  </CheatEntries>
-  <UserdefinedSymbols/>
-</CheatTable>
