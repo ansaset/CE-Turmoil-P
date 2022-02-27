@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="38">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>13</ID>
+      <Description>"较为垃圾的冻结时间-aob"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Turmoil.exe
+  Version: 
+  Date   : 2022-02-18
+  Author : Hying
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+
+ 
+ 
+aobscan(INJECT,89 88 CC 00 00 00 48 8B CE 66) // should be unique
+alloc(newmem,$1000,INJECT)
+
+//label(code)
+label(return)
+
+newmem:
+  mov [rax+000000CC],5700
+  jmp return
+
+{code:
+  mov [rax+000000CC],ecx
+  jmp return
+}
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+INJECT:
+  db 89 88 CC 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 2269B7CBAF3
+
+2269B7CBAC7: 89 85 14 FF FF FF              - mov [rbp-000000EC],eax
+2269B7CBACD: 48 63 85 10 FF FF FF           - movsxd  rax,dword ptr [rbp-000000F0]
+2269B7CBAD4: 89 85 08 FF FF FF              - mov [rbp-000000F8],eax
+2269B7CBADA: 48 8B 46 18                    - mov rax,[rsi+18]
+2269B7CBADE: 48 8B D0                       - mov rdx,rax
+2269B7CBAE1: 83 38 00                       - cmp dword ptr [rax],00
+2269B7CBAE4: 4C 63 B8 CC 00 00 00           - movsxd  r15,dword ptr [rax+000000CC]
+2269B7CBAEB: 49 8B CF                       - mov rcx,r15
+2269B7CBAEE: FF C1                          - inc ecx
+2269B7CBAF0: 83 3A 00                       - cmp dword ptr [rdx],00
+// ---------- INJECTING HERE ----------
+2269B7CBAF3: 89 88 CC 00 00 00              - mov [rax+000000CC],ecx
+// ---------- DONE INJECTING  ----------
+2269B7CBAF9: 48 8B CE                       - mov rcx,rsi
+2269B7CBAFC: 66 90                          - nop 2
+2269B7CBAFE: 49 BB 10 FF 78 9B 26 02 00 00  - mov r11,000002269B78FF10
+2269B7CBB08: 41 FF D3                       - call r11
+2269B7CBB0B: 89 45 88                       - mov [rbp-78],eax
+2269B7CBB0E: 48 8D 86 98 01 00 00           - lea rax,[rsi+00000198]
+2269B7CBB15: 48 63 00                       - movsxd  rax,dword ptr [rax]
+2269B7CBB18: 89 45 90                       - mov [rbp-70],eax
+2269B7CBB1B: 48 8B 55 90                    - mov rdx,[rbp-70]
+2269B7CBB1F: 48 8B 4D 88                    - mov rcx,[rbp-78]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16</ID>
+      <Description>"改变油价25元"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Turmoil.exe
+  Version: 
+  Date   : 2022-02-18
+  Author : Hying
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,89 08 41 FF C6 48 8B 46) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+  mov [rax],190000
+  inc r14d
+  jmp return
+
+code:
+  mov [rax],ecx
+  inc r14d
+  jmp return
+
+INJECT:
+  jmp newmem
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 08 41 FF C6
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 2580AF9730F
+
+2580AF972E1: 85 C0                 - test eax,eax
+2580AF972E3: 75 0F                 - jne 2580AF972F4
+2580AF972E5: 48 63 85 58 FF FF FF  - movsxd  rax,dword ptr [rbp-000000A8]
+2580AF972EC: 89 85 48 FF FF FF     - mov [rbp-000000B8],eax
+2580AF972F2: EB 0D                 - jmp 2580AF97301
+2580AF972F4: 48 63 85 50 FF FF FF  - movsxd  rax,dword ptr [rbp-000000B0]
+2580AF972FB: 89 85 48 FF FF FF     - mov [rbp-000000B8],eax
+2580AF97301: 83 3F 00              - cmp dword ptr [rdi],00
+2580AF97304: 48 8D 47 58           - lea rax,[rdi+58]
+2580AF97308: 48 63 8D 48 FF FF FF  - movsxd  rcx,dword ptr [rbp-000000B8]
+// ---------- INJECTING HERE ----------
+2580AF9730F: 89 08                 - mov [rax],ecx
+// ---------- DONE INJECTING  ----------
+2580AF97311: 41 FF C6              - inc r14d
+2580AF97314: 48 8B 46 18           - mov rax,[rsi+18]
+2580AF97318: 48 8B C8              - mov rcx,rax
+2580AF9731B: 83 39 00              - cmp dword ptr [rcx],00
+2580AF9731E: 48 8B 40 30           - mov rax,[rax+30]
+2580AF97322: 48 8B C8              - mov rcx,rax
+2580AF97325: 83 39 00              - cmp dword ptr [rcx],00
+2580AF97328: 48 63 40 18           - movsxd  rax,dword ptr [rax+18]
+2580AF9732C: 44 3B F0              - cmp r14d,eax
+2580AF9732F: 0F 8C 9B FD FF FF     - jl 2580AF970D0
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>61</ID>
+      <Description>"奖金岛，丰饶，荒漠，平原，雪地，火山"</Description>
+      <LastState Value="8" RealAddress="1B7AA3F3B7C"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"mono-2.0-bdwgc.dll"+0073F448</Address>
+      <Offsets>
+        <Offset>DC</Offset>
+        <Offset>18</Offset>
+        <Offset>10</Offset>
+        <Offset>A0</Offset>
+        <Offset>70</Offset>
+        <Offset>748</Offset>
+      </Offsets>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>68</ID>
+          <Description>"雪地，火山岛，平原，丰饶"</Description>
+          <LastState Value="8" RealAddress="1B7AA3F3B7C"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"mono-2.0-bdwgc.dll"+00492DA8</Address>
+          <Offsets>
+            <Offset>DC</Offset>
+            <Offset>18</Offset>
+            <Offset>20</Offset>
+            <Offset>A0</Offset>
+            <Offset>20</Offset>
+            <Offset>420</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
