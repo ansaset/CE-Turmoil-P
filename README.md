@@ -24,3 +24,6 @@
 游戏版本为R组的v3.0.38
 
 https://www.bilibili.com/read/cv15363950
+
+![image](https://user-images.githubusercontent.com/75153154/155872834-82c627f5-7dc4-4cc5-8972-83884e62bacc.png)
+![image](https://user-images.githubusercontent.com/75153154/155872845-95610fb6-2bc0-4e65-90ee-2b22c2bc4a1d.png)
